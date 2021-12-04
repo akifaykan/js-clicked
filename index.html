@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/favicon.ico?v=2" type="image/x-icon" />
+    <link rel="icon" href="./favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="./css/dist-style.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>JS Clicked</title>
+</head>
+
+<body class="flex flex-col h-screen">
+
+    <div class="container">
+        <div class="grid place-items-center h-screen">
+            <!-- Place -->
+            <div class="xplace" data-place></div>
+            <!-- Sidebar -->
+            <div class="icon__links">
+                <h2 class="mb-4 text-2xl font-bold">Sidebar</h2>
+                <ul class="icon__lists">
+                    <li>
+                        <a href="#" class="xopen" data-id="icon1">♥</a>
+                    </li>
+                    <li>
+                        <a href="#" class="xopen" data-id="icon2">♠</a>
+                    </li>
+                    <li>
+                        <a href="#" class="xopen" data-id="icon3">♣</a>
+                    </li>
+                </ul>
+                <ul class="icon__contents" data-sidebar>
+                    <li id="icon1" data-content="false">
+                        <a class="xclose">╳</a>
+                        <p>♥ Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum rem, numquam consequatur ipsam ut iste voluptatum non cumque
+                            aut ad rerum perspiciatis, nesciunt recusandae deserunt beatae asperiores iure distinctio molestiae!</p>
+                    </li>
+                    <li id="icon2" data-content="false">
+                        <a class="xclose">╳</a>
+                        <p>♠ Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni cumque vitae assumenda quam atque recusandae voluptate,
+                            doloribus reprehenderit quos molestias aut architecto aliquam repellendus asperiores molestiae deserunt numquam ipsum.
+                            Pariatur!</p>
+                        <br>
+                        <br>
+                        <p>♠ Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni cumque vitae assumenda quam atque recusandae voluptate,
+                            doloribus reprehenderit quos molestias aut architecto aliquam repellendus asperiores molestiae deserunt numquam ipsum.
+                            Pariatur!</p>
+                        <br>
+                        <br>
+                        <p>♠ Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni cumque vitae assumenda quam atque recusandae voluptate,
+                            doloribus reprehenderit quos molestias aut architecto aliquam repellendus asperiores molestiae deserunt numquam ipsum.
+                            Pariatur!</p>
+                        <br>
+                        <br>
+                        <p>♠ Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni cumque vitae assumenda quam atque recusandae voluptate,
+                                doloribus reprehenderit quos molestias aut architecto aliquam repellendus asperiores molestiae deserunt numquam ipsum.
+                                Pariatur!</p>
+                    </li>
+                    <li id="icon3" data-content="false">
+                        <a class="xclose">╳</a>
+                        <p>♣ Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed cumque autem repellat doloremque, enim corporis delectus
+                            vero quidem culpa aliquid nostrum quia. Ad nihil laudantium minima dolores? Repellat, quis aliquid!</p>
+                    </li>
+                </ul>
+            </div>
+            <!-- Tabs -->
+            <div class="tabs__lists">
+                <h2 class="mb-4 text-2xl font-bold">Tabs</h2>
+                <ul class="tabs__links">
+                    <li>
+                        <a href="#" class="xopen active" data-id="tab1">☣</a>
+                    </li>
+                    <li>
+                        <a href="#" class="xopen" data-id="tab2">☢</a>
+                    </li>
+                    <li>
+                        <a href="#" class="xopen" data-id="tab3">☠</a>
+                    </li>
+                </ul>
+                <ul class="tabs__contents" data-tabs>
+                    <li id="tab1" data-content="true">
+                        <p>☣</p>
+                    </li>
+                    <li id="tab2" data-content="false">
+                        <p>☢</p>
+                    </li>
+                    <li id="tab3" data-content="false">
+                        <p>☠</p>
+                    </li>
+                </ul>
+            </div>
+            <!-- Pupup -->
+            <div class="popup__lists">
+                <h2 class="mb-4 text-2xl font-bold">Popup</h2>
+                <ul class="popup__links">
+                    <li>
+                        <a href="#" class="xopen" data-id="popup1">⌗</a>
+                    </li>
+                    <li>
+                        <a href="#" class="xopen" data-id="popup2">⌘</a>
+                    </li>
+                    <li>
+                        <a href="#" class="xopen" data-id="popup3">⌬</a>
+                    </li>
+                </ul>
+                <ul class="popup__contents" data-popup>
+                    <li id="popup1" data-content="false">
+                        <a class="xclose">╳</a>
+                        <p>⌗ Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eum, quia.</p>
+                    </li>
+                    <li id="popup2" data-content="false">
+                        <a class="xclose">╳</a>
+                        <p>⌘ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo, totam.</p>
+                    </li>
+                    <li id="popup3" data-content="false">
+                        <a class="xclose">╳</a>
+                        <p>⌬ Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam, eaque.</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/main.js"></script>
+</body>
+
+</html>

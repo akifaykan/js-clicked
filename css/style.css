@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,500;0,700;1,300;1,500;1,700&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Mulish', sans-serif;
+    color: #555;
+    text-rendering: optimizeLegibility;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.container {
+    margin: 0 auto;
+    padding: 1rem;
+}
+.section {
+    margin-bottom: 1rem;
+}
+
+/*==========  CLICKED JS  ===========*/
+.icon__lists,
+.tabs__links,
+.popup__links {
+    display: flex;
+    column-gap: 1rem;
+    font-size: 2rem;
+}
+
+.icon__contents [data-content='false'] {
+    transform: translateX(400px);
+}
+
+.icon__contents [data-content='true'] {
+    transform: translateX(0);
+    transition: transform 0.3s ease;
+}
+
+.tabs__contents [data-content='false'],
+.popup__contents [data-content='false'] {
+    display: none;
+}
+.tabs__contents [data-content='true'],
+.popup__contents [data-content='true'] {
+    display: block;
+}
+
+[id*='tab'] {
+    padding: 1rem;
+    font-size: 2rem;
+    background-color: #444;
+    color: #fff;
+}
+.active[data-id*='tab'],
+.active[data-id*='popup'] {
+    color: #fff;
+}
+
+[id='tab1'],
+[id="popup1"],
+.active[data-id='tab1'],
+.active[data-id='popup1'] {
+    background-color: purple !important;
+}
+[id='tab2'],
+[id="popup2"],
+.active[data-id='tab2'],
+.active[data-id='popup2'] {
+    background-color: saddlebrown !important;
+}
+[id='tab3'],
+[id="popup3"],
+.active[data-id='tab3'],
+.active[data-id='popup3'] {
+    background-color: indigo !important;
+}
+[id*='icon'],
+[id*="popup"] {
+    position: fixed;
+    right: 0;
+    top: 0;
+    max-width: 400px;
+    padding: 1.4rem;
+    height: 100vh;
+    overflow-x: auto;
+    background-color: #fff;
+    z-index: 99;
+}
+[id='icon1'] {
+    background-color: #f4eebc;
+}
+[id='icon2'] {
+    background-color: #bccff4;
+}
+[id='icon3'] {
+    background-color: #f4bcce;
+}
+
+[id*="popup"] {
+    left: 50%;
+    top: 50%;
+    bottom: 0;
+    height: 400px;
+    transform: translate(-50%, -50%);
+    overflow: inherit;
+    color: #fff;
+}
+[id*="popup"] .xclose {
+    position: absolute;
+    right: -25px;
+    top: -30px;
+    color: #fff;
+    font-weight: bold;
+}
+
+.icon__lists li a,
+.tabs__links li a,
+.popup__links li a {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #eee;
+}
+.icon__lists li a:hover,
+.tabs__links li a:hover,
+.popup__links li a:hover {
+    background-color: rgb(207, 207, 207);
+}
+.icon__lists li a.active {
+    color: #fff;
+    background-color: purple;
+}
+.xplace {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9;
+    background-color: #0000006e;
+    opacity: 0;
+    visibility: hidden;
+}
+.xplace.active {
+    opacity: 1;
+    visibility: visible;
+}
+.xclose {
+    margin-bottom: 1rem;
+    cursor: pointer;
+    display: inline-flex;
+}
+body.noscroll {
+    overflow: hidden;
+    margin-right: 1.0625rem;
+}
