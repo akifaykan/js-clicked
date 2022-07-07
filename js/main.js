@@ -1,48 +1,53 @@
-let xBody = document.body,
-    xOpen = document.querySelectorAll('.xopen'),
-    xPlace = document.querySelector('.xplace'),
-    xClose = document.querySelectorAll('.xclose'),
-    xContent = document.querySelectorAll('[data-content]');
 
-if (xOpen.length) {
-    xOpen.forEach((item) => {
-        item.addEventListener('click', (e) => {
-            e.preventDefault();
-            itemXClose();
-            itemXOpen(e);
-        });
-    });
+class XClicked{
+    constructor(){
+        this.body = document.body
+        this.overlay = document.querySelector('.overlay')
+        this.links = document.querySelectorAll('.link')
+        this.close = document.querySelectorAll('.close')
 
-    [xPlace, ...xClose].forEach((item) => {
-        item.addEventListener('click', () => {
-            itemXClose();
-        });
-    });
-}
+        this.links.forEach(l => l.addEventListener('click', e => this.process(e)))
+        this.close.forEach(c => c.addEventListener('click', () => this.removeClasses()))
+        this.overlay.addEventListener('click', () => this.removeClasses())
+    }
 
-function itemXClose() {
-    xPlace.classList.remove('active');
-    xBody.classList.remove('noscroll');
+    process(e){
+        e.preventDefault()
+        const el = e.target
+        const id = el.getAttribute('data-id')
 
-    xContent.forEach((item) => {
-        item.setAttribute('data-content', 'false');
-    });
+        this.overlay.setAttribute('data-place', id)
+        this.removeClasses()
+        this.addClassess(el, id)
+    }
 
-    xOpen.forEach((item) => {
-        item.classList.remove('active');
-    });
-}
+    removeClasses(){
+        this.overlay.classList.remove('active')
+        this.body.classList.remove('noscroll')
 
-function itemXOpen(e) {
-    let targetDataId = e.target.getAttribute('data-id'),
-        targetID = document.getElementById(targetDataId),
-        tabActive = targetID.parentNode.hasAttribute('data-tabs');
+        const id = this.overlay.getAttribute('data-place')
+        const el = document.querySelector(`[data-id="${id}"]`)
+        const de = document.getElementById(id)
 
-    e.target.classList.add('active');
-    targetID.setAttribute('data-content', 'true');
+        const contents = de.parentElement.children
+        const links = el.closest('.links').querySelectorAll('.link');
 
-    if (!tabActive) {
-        xPlace.classList.add('active');
-        xBody.classList.add('noscroll');
+        [...links, ...contents].forEach(item => item.classList.remove('active'))
+    }
+
+    addClassess(el, id){
+        const de = document.getElementById(id)
+        el.parentElement.classList.add('active')
+        de.classList.add('active')
+
+        const tab = de.parentElement.getAttribute('data-overlay')
+        if (tab === 'true') {
+            this.overlay.classList.add('active')
+            this.body.classList.add('noscroll')
+        }
     }
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    new XClicked()
+})

@@ -9,37 +9,37 @@
     <link rel="icon" href="./favicon.png" type="image/x-icon" />
     <link rel="stylesheet" href="./css/dist-style.css">
     <link rel="stylesheet" href="./css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <title>JS Clicked</title>
 </head>
 
 <body class="flex flex-col h-screen">
 
     <div class="container">
+        <div class="overlay" data-state></div>
         <div class="grid place-items-center h-screen">
-            <!-- Place -->
-            <div class="xplace" data-place></div>
             <!-- Sidebar -->
-            <div class="icon__links">
+            <div class="sidebar">
                 <h2 class="mb-4 text-2xl font-bold">Sidebar</h2>
-                <ul class="icon__lists">
-                    <li>
-                        <a href="#" class="xopen" data-id="icon1">♥</a>
+                <ul class="links">
+                    <li class="link">
+                        <a href="#" data-id="side1">♥</a>
                     </li>
-                    <li>
-                        <a href="#" class="xopen" data-id="icon2">♠</a>
+                    <li class="link">
+                        <a href="#" data-id="side2">♠</a>
                     </li>
-                    <li>
-                        <a href="#" class="xopen" data-id="icon3">♣</a>
+                    <li class="link">
+                        <a href="#" data-id="side3">♣</a>
                     </li>
                 </ul>
-                <ul class="icon__contents" data-sidebar>
-                    <li id="icon1" data-content="false">
-                        <a class="xclose">╳</a>
+                <ul class="contents" data-overlay="true">
+                    <li id="side1" class="content">
+                        <a class="close">╳</a>
                         <p>♥ Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum rem, numquam consequatur ipsam ut iste voluptatum non cumque
                             aut ad rerum perspiciatis, nesciunt recusandae deserunt beatae asperiores iure distinctio molestiae!</p>
                     </li>
-                    <li id="icon2" data-content="false">
-                        <a class="xclose">╳</a>
+                    <li id="side2" class="content">
+                        <a class="close">╳</a>
                         <p>♠ Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni cumque vitae assumenda quam atque recusandae voluptate,
                             doloribus reprehenderit quos molestias aut architecto aliquam repellendus asperiores molestiae deserunt numquam ipsum.
                             Pariatur!</p>
@@ -59,64 +59,66 @@
                                 doloribus reprehenderit quos molestias aut architecto aliquam repellendus asperiores molestiae deserunt numquam ipsum.
                                 Pariatur!</p>
                     </li>
-                    <li id="icon3" data-content="false">
-                        <a class="xclose">╳</a>
+                    <li id="side3" class="content">
+                        <a class="close">╳</a>
                         <p>♣ Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed cumque autem repellat doloremque, enim corporis delectus
                             vero quidem culpa aliquid nostrum quia. Ad nihil laudantium minima dolores? Repellat, quis aliquid!</p>
                     </li>
                 </ul>
             </div>
+
             <!-- Tabs -->
-            <div class="tabs__lists">
+            <div class="tabs">
                 <h2 class="mb-4 text-2xl font-bold">Tabs</h2>
-                <ul class="tabs__links">
-                    <li>
-                        <a href="#" class="xopen active" data-id="tab1">☣</a>
+                <ul class="links">
+                    <li class="link active">
+                        <a href="#" data-id="tab1">☣</a>
                     </li>
-                    <li>
-                        <a href="#" class="xopen" data-id="tab2">☢</a>
+                    <li class="link">
+                        <a href="#" data-id="tab2">☢</a>
                     </li>
-                    <li>
-                        <a href="#" class="xopen" data-id="tab3">☠</a>
+                    <li class="link">
+                        <a href="#" data-id="tab3">☠</a>
                     </li>
                 </ul>
-                <ul class="tabs__contents" data-tabs>
-                    <li id="tab1" data-content="true">
+                <ul class="contents" data-overlay="false">
+                    <li id="tab1" class="content active">
                         <p>☣</p>
                     </li>
-                    <li id="tab2" data-content="false">
+                    <li id="tab2" class="content">
                         <p>☢</p>
                     </li>
-                    <li id="tab3" data-content="false">
+                    <li id="tab3" class="content">
                         <p>☠</p>
                     </li>
                 </ul>
             </div>
+
             <!-- Pupup -->
-            <div class="popup__lists">
+            <div class="popup">
                 <h2 class="mb-4 text-2xl font-bold">Popup</h2>
-                <ul class="popup__links">
-                    <li>
-                        <a href="#" class="xopen" data-id="popup1">⌗</a>
+                <ul class="links">
+                    <li class="link">
+                        <a href="#" data-id="popup1">⌗</a>
                     </li>
-                    <li>
-                        <a href="#" class="xopen" data-id="popup2">⌘</a>
+                    <li class="link">
+                        <a href="#" data-id="popup2">⌘</a>
                     </li>
-                    <li>
-                        <a href="#" class="xopen" data-id="popup3">⌬</a>
+                    <li class="link">
+                        <a href="#" data-id="popup3">⌬</a>
                     </li>
                 </ul>
-                <ul class="popup__contents" data-popup>
-                    <li id="popup1" data-content="false">
-                        <a class="xclose">╳</a>
+                <ul class="contents" data-overlay="true">
+                    <li id="popup1" class="content">
+                        <a class="close">╳</a>
                         <p>⌗ Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eum, quia.</p>
                     </li>
-                    <li id="popup2" data-content="false">
-                        <a class="xclose">╳</a>
+                    <li id="popup2" class="content">
+                        <a class="close">╳</a>
                         <p>⌘ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo, totam.</p>
                     </li>
-                    <li id="popup3" data-content="false">
-                        <a class="xclose">╳</a>
+                    <li id="popup3" class="content">
+                        <a class="close">╳</a>
                         <p>⌬ Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam, eaque.</p>
                     </li>
                 </ul>

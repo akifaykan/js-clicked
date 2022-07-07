@@ -1,50 +1,46 @@
-@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,500;0,700;1,300;1,500;1,700&display=swap');
-
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 body {
-    font-family: 'Mulish', sans-serif;
+    font-family: 'Quicksand', sans-serif;
     color: #555;
     text-rendering: optimizeLegibility;
     font-size: 1.2rem;
     font-weight: 500;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .container {
     margin: 0 auto;
-    padding: 1rem;
 }
 .section {
     margin-bottom: 1rem;
 }
 
-/*==========  CLICKED JS  ===========*/
-.icon__lists,
-.tabs__links,
-.popup__links {
-    display: flex;
-    column-gap: 1rem;
-    font-size: 2rem;
+.grid {
+    grid-template-columns: repeat(3, 1fr);
 }
 
-.icon__contents [data-content='false'] {
+/*==========  CLICKED JS  ===========*/
+.sidebar .content {
     transform: translateX(400px);
 }
 
-.icon__contents [data-content='true'] {
+.sidebar .content.active {
     transform: translateX(0);
     transition: transform 0.3s ease;
 }
 
-.tabs__contents [data-content='false'],
-.popup__contents [data-content='false'] {
+.tabs .content,
+.popup .content{
     display: none;
 }
-.tabs__contents [data-content='true'],
-.popup__contents [data-content='true'] {
+
+.popup .content.active,
+.tabs .content.active {
     display: block;
 }
 
@@ -54,30 +50,24 @@ body {
     background-color: #444;
     color: #fff;
 }
-.active[data-id*='tab'],
-.active[data-id*='popup'] {
+.content {
     color: #fff;
 }
 
-[id='tab1'],
-[id="popup1"],
-.active[data-id='tab1'],
-.active[data-id='popup1'] {
-    background-color: purple !important;
+.link.active:nth-child(1) a,
+.content:nth-child(1){
+    background-color: purple;
 }
-[id='tab2'],
-[id="popup2"],
-.active[data-id='tab2'],
-.active[data-id='popup2'] {
-    background-color: saddlebrown !important;
+.link.active:nth-child(2) a,
+.content:nth-child(2){
+    background-color: teal;
 }
-[id='tab3'],
-[id="popup3"],
-.active[data-id='tab3'],
-.active[data-id='popup3'] {
-    background-color: indigo !important;
+.link.active:nth-child(3) a,
+.content:nth-child(3){
+    background-color: brown;
 }
-[id*='icon'],
+
+[id*='side'],
 [id*="popup"] {
     position: fixed;
     right: 0;
@@ -89,15 +79,6 @@ body {
     background-color: #fff;
     z-index: 99;
 }
-[id='icon1'] {
-    background-color: #f4eebc;
-}
-[id='icon2'] {
-    background-color: #bccff4;
-}
-[id='icon3'] {
-    background-color: #f4bcce;
-}
 
 [id*="popup"] {
     left: 50%;
@@ -108,49 +89,65 @@ body {
     overflow: inherit;
     color: #fff;
 }
-[id*="popup"] .xclose {
+[id*="popup"] .close {
     position: absolute;
-    right: -25px;
+    right: -30px;
     top: -30px;
     color: #fff;
-    font-weight: bold;
-}
-
-.icon__lists li a,
-.tabs__links li a,
-.popup__links li a {
-    width: 40px;
-    height: 40px;
+    background-color: #444;
+    width: 30px;
+    height: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: .7rem;
+    border-radius: 0.2rem;
+}
+
+.links {
+    display: flex;
+    column-gap: 1rem;
+    font-size: 2rem;
+}
+
+.links li a {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f3f3f3;
+    font-size: 1.4rem;
+    border-radius: 0.4rem;
+}
+.tabs .links li a {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.links li a:hover {
     background-color: #eee;
 }
-.icon__lists li a:hover,
-.tabs__links li a:hover,
-.popup__links li a:hover {
-    background-color: rgb(207, 207, 207);
-}
-.icon__lists li a.active {
+.links li.active a {
     color: #fff;
     background-color: purple;
 }
-.xplace {
+.overlay {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     z-index: 9;
-    background-color: #0000006e;
+    background-color: #ffffffb0;
     opacity: 0;
     visibility: hidden;
 }
-.xplace.active {
+.overlay.active {
     opacity: 1;
     visibility: visible;
 }
-.xclose {
+.close {
     margin-bottom: 1rem;
     cursor: pointer;
     display: inline-flex;
