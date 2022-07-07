@@ -1,7 +1,6 @@
 
 class XClicked{
     constructor(){
-        this.body = document.body
         this.overlay = document.querySelector('.overlay')
         this.links = document.querySelectorAll('.link')
         this.close = document.querySelectorAll('.close')
@@ -23,7 +22,6 @@ class XClicked{
 
     removeClasses(){
         this.overlay.classList.remove('active')
-        this.body.classList.remove('noscroll')
 
         const id = this.overlay.getAttribute('data-place')
         const el = document.querySelector(`[data-id="${id}"]`)
@@ -41,10 +39,7 @@ class XClicked{
         de.classList.add('active')
 
         const tab = de.parentElement.getAttribute('data-overlay')
-        if (tab === 'true') {
-            this.overlay.classList.add('active')
-            this.body.classList.add('noscroll')
-        }
+        if (tab === 'true') this.overlay.classList.add('active')
     }
 }
 

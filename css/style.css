@@ -6,11 +6,10 @@
 body {
     font-family: 'Quicksand', sans-serif;
     color: #555;
-    text-rendering: optimizeLegibility;
     font-size: 1.2rem;
     font-weight: 500;
-    overflow-y: scroll;
     overflow-x: hidden;
+    text-rendering: optimizeLegibility;
 }
 
 .container {
@@ -34,12 +33,10 @@ body {
     transition: transform 0.3s ease;
 }
 
-.tabs .content,
-.popup .content{
+.tabs .content{
     display: none;
 }
 
-.popup .content.active,
 .tabs .content.active {
     display: block;
 }
@@ -85,10 +82,19 @@ body {
     top: 50%;
     bottom: 0;
     height: 400px;
-    transform: translate(-50%, -50%);
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(-50%, calc(-50% + 10px));
+    transition: all 0.3s ease;
     overflow: inherit;
     color: #fff;
 }
+[id*="popup"].active {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%);
+}
+
 [id*="popup"] .close {
     position: absolute;
     right: -30px;
@@ -151,8 +157,4 @@ body {
     margin-bottom: 1rem;
     cursor: pointer;
     display: inline-flex;
-}
-body.noscroll {
-    overflow: hidden;
-    margin-right: 1.0625rem;
 }
